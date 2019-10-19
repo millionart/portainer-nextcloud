@@ -7,11 +7,13 @@ volumes:
 services:
   db:
     image: postgres
+    ports:
+      - 5432:5432
     restart: always
     volumes:
       - db:/var/lib/postgresql
     environment:
-      - POSTGRES_PASSWORD==N3xtCl0ud!
+      - POSTGRES_PASSWORD=N3xtCl0ud!
       - POSTGRES_USER=nextcloud
       - POSTGRES_DB=nextcloud
       - POSTGRES_INITDB_ARGS="--encoding=UTF8 --locale=zh_CN.UTF8"
