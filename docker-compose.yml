@@ -6,20 +6,20 @@ volumes:
 
 services:
   db:
-    image: mariadb
+    image: postgres
     restart: always
     volumes:
-      - db:/var/lib/mysql
+      - db:/var/lib/postgresql
     environment:
-      - MYSQL_ROOT_PASSWORD=N3xtCl0ud!
-      - MYSQL_PASSWORD=nextcloud
-      - MYSQL_DATABASE=nextcloud
-      - MYSQL_USER=nextcloud
+      - POSTGRES_PASSWORD==N3xtCl0ud!
+      - POSTGRES_USER=nextcloud
+      - POSTGRES_DB=nextcloud
+      - POSTGRES_INITDB_ARGS="--encoding=UTF8 --locale=zh_CN.UTF8"
 
   app:
     image: nextcloud
     ports:
-      - 8080:80
+      - 8081:80
     links:
       - db
     volumes:
